@@ -18,12 +18,13 @@ This documentation represents a typical enterprise infrastructure with the follo
 - **Operating Systems**: 
   - Windows Server (12 servers)
   - Linux (4 servers)
-- **Environments**: Production, Development, DevOps
+- **Environments**: Production, Staging, Development
 
 ### Network Architecture
 The infrastructure follows a segmented network approach with:
 
 - **Production Networks** - Hosting business-critical applications and databases
+- **Staging Networks** - Pre-production testing and validation environment
 - **Development Networks** - Supporting development and testing activities
 - **Special Networks** - Voice communications and storage systems
 - **DevOps Networks** - Automation and deployment infrastructure
@@ -67,7 +68,8 @@ The complete infrastructure architecture is visualized in the diagram below, sho
 graph LR
     subgraph "Network Zones"
         PROD[Production Network<br/>Business Applications]
-        DEV[Development Network<br/>Testing & Staging]
+        STAGE[Staging Network<br/>Pre-production Testing]
+        DEV[Development Network<br/>Development & Testing]
         INFRA[Infrastructure Network<br/>Core Services]
         VOICE[Voice Network<br/>Communications]
         STORAGE[Storage Network<br/>File Services]
@@ -76,10 +78,12 @@ graph LR
     
     Internet((Internet)) --> PROD
     PROD <--> INFRA
+    STAGE <--> INFRA
     DEV <--> INFRA
     VOICE --> INFRA
     STORAGE --> INFRA
     DEVOPS --> PROD
+    DEVOPS --> STAGE
     DEVOPS --> DEV
 ```
 
@@ -108,10 +112,11 @@ graph TD
 |----------|-------|
 | Total Servers | 16 |
 | Production Services | 19 |
+| Staging Services | 1 |
 | Development Services | 1 |
 | Infrastructure Services | 4 |
 | Business Applications | 8 |
-| Network Segments | 6 |
+| Network Segments | 7 |
 
 ## 🚀 Technology Stack
 
@@ -159,10 +164,6 @@ This documentation can serve as a reference for:
 - Server names and network details are generalized examples
 - This represents a typical small-to-medium enterprise setup
 - Documentation follows industry standard practices
-
-## 🤝 Contributing
-
-This is a reference documentation repository. For questions or suggestions about the documentation structure and content, please open an issue.
 
 ---
 
