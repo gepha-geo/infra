@@ -54,7 +54,11 @@ The infrastructure follows a segmented network approach with:
 
 The complete infrastructure architecture is visualized in the diagram below, showing all network segments, servers, services, and their interconnections:
 
-![Infrastructure Diagram](./images/diagram.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./images/diagram-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="./images/diagram-light.png">
+  <img alt="Infrastructure Diagram" src="./images/diagram-light.png">
+</picture>
 
 ## 🔒 Security & Architecture
 
